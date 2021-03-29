@@ -14,8 +14,8 @@ wget https://alibaba.github.io/arthas/arthas-boot.jar
 java -jar arthas-boot.jar
 
 // 3、arthas 启动后会自动检测存在的 java 进程
-$ $ java -jar arthas-boot.jar
-* [1]: 35542
+$ java -jar arthas-boot.jar
+* [1]: 35542 com.yyq.bootstrap.jar
   [2]: 71560 arthas-demo.jar
 1
 
@@ -27,8 +27,8 @@ $ $ java -jar arthas-boot.jar
 ### 1.2 常用 watch 命令
 
 ```sh
-// 监听 demo.MathGame 类的 primeFactors 方法，展示 params[0] 第一个参数、returnObj 返回值、throwExp 报错，过滤条件 params[0].getKey == '12345'
-watch demo.MathGame primeFactors "{params[0],returnObj,throwExp}" "params[0].getKey == '12345'" -x 2
+// 监听 demo.MathGame 类的 primeFactors 方法，展示 params[0] 第一个参数、returnObj 返回值、throwExp 报错，过滤条件 params[0].getKey == '12345'，打印详细参数-v
+watch demo.MathGame primeFactors "{params[0],returnObj,throwExp}" "params[0].getKey == '12345'" -x 2 -v
 ```
 
 ### 1.3 Arthas Idea 插件
