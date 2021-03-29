@@ -7,3 +7,5 @@
 - [ELK平台](Knowledge/ELK/ELK.md)
 - [Java](Knowledge/Java/拦截器和过滤器.md)
 - [Linux](Knowledge/Linux/Linux命令.md)
+- [Redis](Knowledge/Redis/Linux命令.md)
+- [Idea](Knowledge/Idea/Idea工具.md)
