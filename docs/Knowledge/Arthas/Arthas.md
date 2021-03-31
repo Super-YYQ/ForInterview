@@ -27,8 +27,11 @@ $ java -jar arthas-boot.jar
 ### 1.2 常用 watch 命令
 
 ```sh
-## 监听 demo.MathGame 类的 primeFactors 方法，展示 params[0] 第一个参数、returnObj 返回值、throwExp 报错，过滤条件 params[0].getKey == '12345'，打印详细参数-v
-watch demo.MathGame primeFactors "{params[0],returnObj,throwExp}" "params[0].getKey == '12345'" -x 2 -v
+## 监听 demo.MathGame 类的 primeFactors 方法，展示 params[0] 第一个参数、returnObj 返回值、throwExp 报错，过滤条件 params[0].getKey == '12345'，打印详细参数-v，收集n条数据-n
+watch demo.MathGame primeFactors "{params[0],returnObj,throwExp}" "params[0].getKey == '12345'" -x 2 -v -n
+
+## 过滤list数组中包含参数条件
+wacth ... "params[0].parameters.indexOf('c1r4k4yv')>-1"
 ```
 
 ### 1.3 Arthas Idea 插件
