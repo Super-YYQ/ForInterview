@@ -1,10 +1,12 @@
 ## 一、Arthas 概述
 
+### 1.1 教程
+
 [Arthas文档](https://arthas.gitee.io/quick-start.html)
 
 [阿里云在线教程](https://arthas.aliyun.com/doc/arthas-tutorials.html?language=cn&id=arthas-advanced)
 
-### 1.1 使用流程
+### 1.2 使用流程
 
 ```shell
 ## 1、下载 arthas 的包
@@ -24,7 +26,9 @@ $ java -jar arthas-boot.jar
 ## 5、stop 命令可退出
 ```
 
-### 1.2 常用 watch 命令
+## 二、常用命令
+
+### 2.1 watch
 
 ```sh
 ## 监听 demo.MathGame 类的 primeFactors 方法，展示 params[0] 第一个参数、returnObj 返回值、throwExp 报错，过滤条件 params[0].getKey == '12345'，打印详细参数-v，收集n条数据-n
@@ -34,6 +38,15 @@ watch demo.MathGame primeFactors "{params[0],returnObj,throwExp}" "params[0].get
 wacth ... "params[0].parameters.indexOf('c1r4k4yv')>-1"
 ```
 
-### 1.3 Arthas Idea 插件
+### 2.2 jad
+
+```shell
+## 查看 java 源码，可以用来诊断线上环境代码是否最新
+jad demo.MathGame test
+```
+
+
+
+## 三、Arthas Idea 插件
 
 ![image-20210324124605272](https://raw.githubusercontent.com/Super-YYQ/PicGoPicture/main/PicGo/20210324124605.png)
