@@ -32,6 +32,8 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 > Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文
 
+### 3.1 创建本地仓库并与远程库关联
+
 ```shell
 ## 创建文件夹--learngit
 $ mkdir learngit
@@ -52,5 +54,19 @@ $ git remote add origin git@github.com:michaelliao/learngit.git
 
 ## 四、分支管理
 
+### 4.1 cherry-pick
 
+[廖雪峰cherry-pick教程](http://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
+
+```shell
+# 例：将指定提交应用于master分支
+
+# 切换到 master 分支
+$ git checkout master
+
+# Cherry pick 操作
+$ git cherry-pick kj835j35h2j
+```
+
+![image-20210409152953268](https://raw.githubusercontent.com/Super-YYQ/PicGoPicture/main/PicGo/20210409152953.png)
 
