@@ -15,3 +15,11 @@
 ### 2.2 自动去除无用的 import
 
 ![image-20210329160033824](https://raw.githubusercontent.com/Super-YYQ/PicGoPicture/main/PicGo/20210329160033.png)
+
+### 2.3 不格式化注释
+
+![image-20210408102452239](https://raw.githubusercontent.com/Super-YYQ/PicGoPicture/main/PicGo/20210408102452.png)
+
+### 2.4 注释模板
+
+[CSDN教程](https://blog.csdn.net/u010608551/article/details/107557003)
