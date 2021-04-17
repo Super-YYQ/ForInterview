@@ -45,7 +45,9 @@ wacth ... "params[0].parameters.indexOf('c1r4k4yv')>-1"
 jad demo.MathGame test
 ```
 
+### 2.3 获取任意bean
 
+[GitHub教程](https://github.com/alibaba/arthas/issues/482)
 
 ## 三、Arthas Idea 插件
 

@@ -12,3 +12,29 @@ cat -n [log-name] | grep "搜索内容"
 cat -n [log-name] | tail -n +100 | head -n 50
 ```
 
+## 二、SSH
+
+```shell
+$ ssh -p 2222 root@192.168.22.12
+```
+
+## 三、zip命令
+
+```shell
+## 安装unzip命令
+sudo apt install unzip
+
+## 将file.zip解压到当前目录unzipped_directory文件夹下
+unzip file.zip -d unzipped_directory
+```
+
+## 四、容器命令
+
+```shell
+## 查询所有容器，过滤关键词
+kubectl get pod -A | grep bd-package
+
+## 将文件test放入容器中/usr/local/bin目录下
+kubectl -n c87e2267-1001-4c70-bb2a-ab41f3b81aa3 cp test online-bd-package-7cb6ff7f97-sk8bb:/usr/local/bin
+```
+
