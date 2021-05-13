@@ -50,6 +50,13 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 $ git remote add origin git@github.com:michaelliao/learngit.git
 ```
 
+### 3.2 本地分支回退后强制推送到仓库
+
+```shell
+## 当代码需要回退时，本地回退后强制远程仓库和本地一致
+git pull -f 
+```
+
 
 
 ## 四、分支管理

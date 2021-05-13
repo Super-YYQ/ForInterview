@@ -23,3 +23,9 @@
 ### 2.4 注释模板
 
 [CSDN教程](https://blog.csdn.net/u010608551/article/details/107557003)
+
+### 2.5 合并多次提交
+
+[CSDN教程](https://blog.csdn.net/kangsa998/article/details/104247156/)
+
+![image-20210419105447925](https://raw.githubusercontent.com/Super-YYQ/PicGoPicture/main/PicGo/20210419105447.png)

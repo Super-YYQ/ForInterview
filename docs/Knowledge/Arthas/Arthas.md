@@ -45,9 +45,66 @@ wacth ... "params[0].parameters.indexOf('c1r4k4yv')>-1"
 jad demo.MathGame test
 ```
 
-### 2.3 获取任意bean
+### 2.3 trace
+
+```shell
+## 监控方法内部调用路径，并输出方法路径上的每个节点上耗时
+trace demo.MathGame test
+```
+
+### 2.4 获取任意bean
 
 [GitHub教程](https://github.com/alibaba/arthas/issues/482)
+
+**spring mvc应用，请求会经过一系列的spring bean处理，那么我们可以在spring mvc的类里拦截到一些请求。**
+
+```shell
+$ tt -t org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter invokeHandlerMethod
+Press Ctrl+C to abort.
+Affect(class-cnt:1 , method-cnt:1) cost in 101 ms.
+ INDEX  TIMESTAMP         COST(ms  IS-RE  IS-EX  OBJECT       CLASS                     METHOD
+                          )        T      P
+------------------------------------------------------------------------------------------------------------------
+ 1000   2019-01-27 16:31  3.66744  true   false  0x4465cf70   RequestMappingHandlerAda  invokeHandlerMethod
+        :54                                                   pter
+```
+
+**那么怎样获取到spring context？**
+
+可以用`tt`命令的`-i`参数来指定index，并且用`-w`参数来执行ognl表达式来获取spring context：
+
+```shell
+$ tt -i 1000 -w 'target.getApplicationContext()'
+@AnnotationConfigEmbeddedWebApplicationContext[
+ reader=@AnnotatedBeanDefinitionReader[org.springframework.context.annotation.AnnotatedBeanDefinitionReader@35dc90ec],
+ scanner=@ClassPathBeanDefinitionScanner[org.springframework.context.annotation.ClassPathBeanDefinitionScanner@72078a14],
+  annotatedClasses=null,
+  basePackages=null,
+]
+Affect(row-cnt:1) cost in 7 ms.
+```
+
+**从spring context里获取任意bean**
+
+获取到spring context之后，就可以获取到任意的bean了，比如获取到`helloWorldService`，并调用`getHelloMessage()`函数：
+
+```shell
+$ tt -i 1000 -w 'target.getApplicationContext().getBean("helloWorldService").getHelloMessage()'
+@String[Hello World]
+Affect(row-cnt:1) cost in 5 ms.
+```
+
+### 2.5 日志命令
+
+```shell
+## 查询所有日志设置
+$ logger
+
+## 更改日志级别
+$ logger -c [hashcode] --name ROOT --level debug
+```
+
+
 
 ## 三、Arthas Idea 插件
 
